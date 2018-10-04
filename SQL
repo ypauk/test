@@ -1,0 +1,48 @@
+mysql -u root	 								вхід без пароля
+mysql -u root -p								вхід з паролем
+SHOW DATABASES;							показати всі таблиці
+USE TABLE EXAMLE1;						вибрати таблицю EXAMLE1
+
+SHOW COLUMNS FROM table_name; 		показати всі поля таблиці
+SELECT created_at_pole from table_name вибрати всі записи поля created_at_pole з таблиці table_name
+UPDATE table_name set created_at_pole='value new' where item_id=1
+
+
+SHOW TABLES; 
+SELECT * FROM table1; 
+DROP DATABASE  table1; 
+DROP TABLE table1;
+
+select * from admin_passwords;			таблиця з паролями адміна
+
+********************
+SELECT * FROM eav_attribute_group;/G
+SELECT * FROM eav_attribute_group where attribute_group_name="Content";/G
+delete from setup_module where module="Mymodule_MyAttribute";
+
+
+eav_attribute_group
+SELECT eav_attribute_group from eav_attribute_group;
+
+select * from quote\G;  нормальний вид
+SELECT attribute_group_name from eav_attribute_group; 
+SELECT * FROM eav_attribute_group where attribute_group_name="General";/G
+
+********************************************
+//https://devdocs.magento.com/guides/v2.2/config-guide/multi-master/multi-master_masterdb.html
+Create additional database *magento_sales*
+
+
+create database magento_sales;
+GRANT ALL ON magento_sales.* TO magento_sales@localhost IDENTIFIED BY 'magento_sales';
+php bin/magento setup:db-schema:split-sales --host="localhost" --dbname="magento_sales" --username="magento_sales" --password="magento_sales"
+//Migration has been finished successfully!
+
+
+*********************************************
+
+
+select "flat" as dbtable, name, position from catalog_category_flat_store_1;              показати таблицю з назвами категорій
+
+
+select * from catalog_product_flat_1 where entity_id = 2056;\G
